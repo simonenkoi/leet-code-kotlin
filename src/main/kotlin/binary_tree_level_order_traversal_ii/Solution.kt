@@ -29,8 +29,8 @@ class Solution {
             val levelNum: Int = queue.size
             val subList: MutableList<Int> = mutableListOf()
             for (i in 0 until levelNum) {
-                if (queue.peek().left != null) queue.offer(queue.peek().left)
-                if (queue.peek().right != null) queue.offer(queue.peek().right)
+                queue.peek().left?.run(queue::offer)
+                queue.peek().right?.run(queue::offer)
                 subList.add(queue.poll().`val`)
             }
             wrapList.add(0, subList)
