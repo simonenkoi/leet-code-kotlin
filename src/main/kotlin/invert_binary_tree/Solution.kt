@@ -5,8 +5,8 @@ class Solution {
         if (root == null) {
             return null
         }
-        val left = root.left
-        val right = root.right
+        val left: TreeNode? = root.left
+        val right: TreeNode? = root.right
         root.left = invertTree(right)
         root.right = invertTree(left)
         return root
